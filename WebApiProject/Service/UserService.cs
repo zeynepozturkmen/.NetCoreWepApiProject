@@ -27,7 +27,7 @@ namespace WebApiProject.Service
         }
         public GetTokenResponseModel Authenticate(UserLoginRequestModel model)
         {
-            var user = _userRepository.Where(x => x.UserName == model.UserName && x.Password == model.Password).FirstOrDefault();
+            var user = _userRepository.Where(x => x.Email == model.Email && x.Password == model.Password).FirstOrDefault();
 
             // Kullanici bulunamadıysa null döner.
             if (user == null)
